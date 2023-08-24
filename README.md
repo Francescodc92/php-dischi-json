@@ -15,9 +15,6 @@
     - Prima assicuratevi che la vostra pagina index.php (il vostro front-end) riesca a comunicare correttamente con il vostro script PHP (le vostre "API").
     - Solo a questo punto sarà utile passare alla lettura della lista da un file JSON.
 
-```javascript CODE
-```
-
 ## Tecnologie
 
 - HTML
