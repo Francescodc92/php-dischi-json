@@ -3,29 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--vue js-->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <!--style css-->
   <link rel="stylesheet" href="./css/style.css">
   <title> PHP Dischi JSON </title>
 </head>
 <body>
   <div id="app">
-
-    <div class="card" v-for="(song, index) in songsArray">
-      <p>
-        {{ song.title }}
-      </p>
-      <p>
-        {{ song.writer }}
-      </p>
-      <p>
-        {{ song.img }}
-      </p>
-    </div>
+    <header>
+      <img src="./img/logo.svg" alt="logo">
+    </header>
+    <main>
+      <div class="cards-container">
+        <div class="card" v-for="(song, index) in songsArray">
+          <div class="img-wrapper">
+            <img :src="song.img" alt="song title">
+          </div>
+          <h2>
+            {{ song.title }}
+          </h2>
+          <p>
+            {{ song.writer }}
+          </p>
+          <p class="year">
+            {{ song.year }}
+          </p>
+        </div>
+      </div>
+    </main>
   </div>
 
   
-  <!--vue js-->
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
   <!--axios-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js" integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!--script js-->
