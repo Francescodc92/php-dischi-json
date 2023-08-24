@@ -11,27 +11,49 @@
 </head>
 <body>
   <div id="app">
-    <header>
-      <img src="./img/logo.svg" alt="logo">
-    </header>
-    <main>
-      <div class="cards-container">
-        <div class="card" v-for="(song, index) in songsArray">
-          <div class="img-wrapper">
-            <img :src="song.img" alt="song title">
+    <div class="app-container">
+      <header>
+        <img src="./img/logo.svg" alt="logo">
+      </header>
+      <main>
+        <div class="cards-container">
+          <div class="card" v-for="(song, index) in songsArray" @click="moreInfo(index)">
+            <div class="img-wrapper">
+              <img :src="song.img" :alt="song.img">
+            </div>
+            <h2>
+              {{ song.title }}
+            </h2>
+            <p>
+              {{ song.writer }}
+            </p>
+            <p class="year" >
+              {{ song.year }}
+            </p>
           </div>
-          <h2>
-            {{ song.title }}
-          </h2>
-          <p>
-            {{ song.writer }}
-          </p>
-          <p class="year">
-            {{ song.year }}
-          </p>
         </div>
-      </div>
-    </main>
+        <div class="modal-info" v-if="modalOpen" >
+          <div class="card-modal">
+            <div class="img-wrapper">
+              <img :src="singleSongInfo[0].img" :alt="singleSongInfo[0].title">
+            </div>
+            <h2>
+              {{ singleSongInfo[0].title }}
+            </h2>
+            <p>
+              {{ singleSongInfo[0].writer }}
+            </p>
+            <p class="year" >
+              {{ singleSongInfo[0].year }}
+            </p>
+          </div>
+          <button class="close-button" @click="closeModal()">
+            X
+          </button>
+        </div>
+      </main>
+
+    </div>
   </div>
 
   
