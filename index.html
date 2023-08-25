@@ -32,19 +32,19 @@
             </p>
           </div>
         </div>
-        <div class="modal-info" v-if="modalOpen" >
+        <div class="modal-info" v-if="singleSongInfo != null" >
           <div class="card-modal">
             <div class="img-wrapper">
-              <img :src="singleSongInfo[0].img" :alt="singleSongInfo[0].title">
+              <img :src="singleSongInfo.img" :alt="singleSongInfo.title">
             </div>
             <h2>
-              {{ singleSongInfo[0].title }}
+              {{ singleSongInfo.title }}
             </h2>
             <p>
-              {{ singleSongInfo[0].writer }}
+              {{ singleSongInfo.writer }}
             </p>
             <p class="year" >
-              {{ singleSongInfo[0].year }}
+              {{ singleSongInfo.year }}
             </p>
           </div>
           <button class="close-button" @click="closeModal()">

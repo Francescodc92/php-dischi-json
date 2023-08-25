@@ -4,26 +4,26 @@ createApp({
   data(){
     return {
       songsArray: [],
-      singleSongInfo : {},
-      modalOpen : false
+      singleSongInfo : null,
     }
   },
   methods: {
     moreInfo(index) {
       axios
-      .get(`http://localhost/php/004-php-dischi-json/api.php?id_song=${index}`)
+      .get("http://localhost/php/004-php-dischi-json/singleSong.php", {
+        params:{
+          songID: index
+        }
+      })
       .then((res)=> {
         this.singleSongInfo = res.data;
-        this.modalOpen = true
-       
-        console.log(res.data)
       })
       .catch((error)=>{
         console.log(error);
       })
     },
     closeModal(){
-      this.modalOpen = false;
+      this.singleSongInfo = null;
     }
   },
   created(){
